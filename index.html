@@ -45,75 +45,84 @@
         <h1 class="cabecera">🍄<br> El Mundo Micologico y su Mitologia</h1>
         </div>
     </div>
-    <div class="">
-    <div class="container">
-        <form id="filterForm">
-            <div class="mb-3">
-                <label for="color" class="form-label">Color</label>
-                <select class="form-select" id="color">
-                    <option value="">Seleccione un color</option>
-                    <option value="blanco">Blanco</option>
-                    <option value="marron">Marrón</option>
-                    <option value="rojo">Rojo</option>
-                    <option value="amarillo">Amarillo</option>
-                    <option value="otro">Otro (especifique)</option>
-                </select>
-            </div>
-            <div class="mb-3">
-                <label for="laminas" class="form-label">Tipo de láminas</label>
-                <select class="form-select" id="laminas" disabled>
-                    <option value="">Seleccione el tipo de láminas</option>
-                    <option value="libres">Libres</option>
-                    <option value="adnatas">Adnatas</option>
-                    <option value="decurrentes">Decurrentes</option>
-                    <option value="otro">Otro (especifique)</option>
-                    
-                </select>
-            </div>
-            <div class="mb-3">
-                <label for="sombrero" class="form-label">Tipo de sombrero</label>
-                <select class="form-select" id="sombrero" disabled>
-                    <option value="">Seleccione el tipo de sombrero</option>
-                    <option value="convexo">Convexo</option>
-                    <option value="plano">Plano</option>
-                    <option value="umbonado">Umbonado</option>
-                    <option value="otro">Otro (especifique)</option>
-                    
-                </select>
-            </div>
-            <div class="mb-3">
-                <label for="anillo" class="form-label">Anillo</label>
-                <select class="form-select" id="anillo" disabled>
-                    <option value="">Seleccione el tipo de anillo</option>
-                    <option value="presente">Presente</option>
-                    <option value="ausente">Ausente</option>
-                    <option value="otro">Otro (especifique)</option>
-                </select>
-            </div>
-            <div class="mb-3">
-                <label for="pie" class="form-label">Tipo de pie</label>
-                <select class="form-select" id="pie" disabled>
-                    <option value="">Seleccione el tipo de pie</option>
-                    <option value="cilindrico">Cilíndrico</option>
-                    <option value="bulboso">Bulboso</option>
-                    <option value="radicante">Radicante</option>
-                    <option value="otro">Otro (especifique)</option>
-                </select>
-            </div>
-            <div class="mb-3">
-                <label for="tamano" class="form-label">Tamaño abierto</label>
-                <select class="form-select" id="tamano" disabled>
-                    <option value="">Seleccione el tamaño</option>
-                    <option value="pequeno">Pequeño</option>
-                    <option value="mediano">Mediano</option>
-                    <option value="grande">Grande</option>
-                    <option value="otro">Otro (especifique en cm.)</option>
-                </select>
-            </div>
-        </form>
-        <ul id="speciesList" class="list-group">
-            <!-- Listado de especies de setas -->
-        </ul>
+    <div class="dropdown">
+        <a class="btn btn-success dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Opciones</a>
+
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action<div class="container">
+                
+                <form id="filterForm">
+                    <div class="mb-3">
+                        <label for="color" class="form-label">Color</label>
+                        <select class="form-select" id="color">
+                            <option value="">Seleccione un color</option>
+                            <option value="blanco">Blanco</option>
+                            <option value="marron">Marrón</option>
+                            <option value="rojo">Rojo</option>
+                            <option value="amarillo">Amarillo</option>
+                            <option value="otro">Otro (especifique)</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="laminas" class="form-label">Tipo de láminas</label>
+                        <select class="form-select" id="laminas" disabled>
+                            <option value="">Seleccione el tipo de láminas</option>
+                            <option value="libres">Libres</option>
+                            <option value="adnatas">Adnatas</option>
+                            <option value="decurrentes">Decurrentes</option>
+                            <option value="otro">Otro (especifique)</option>
+                            
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="sombrero" class="form-label">Tipo de sombrero</label>
+                        <select class="form-select" id="sombrero" disabled>
+                            <option value="">Seleccione el tipo de sombrero</option>
+                            <option value="convexo">Convexo</option>
+                            <option value="plano">Plano</option>
+                            <option value="umbonado">Umbonado</option>
+                            <option value="otro">Otro (especifique)</option>
+                            
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="anillo" class="form-label">Anillo</label>
+                        <select class="form-select" id="anillo" disabled>
+                            <option value="">Seleccione el tipo de anillo</option>
+                            <option value="presente">Presente</option>
+                            <option value="ausente">Ausente</option>
+                            <option value="otro">Otro (especifique)</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="pie" class="form-label">Tipo de pie</label>
+                        <select class="form-select" id="pie" disabled>
+                            <option value="">Seleccione el tipo de pie</option>
+                            <option value="cilindrico">Cilíndrico</option>
+                            <option value="bulboso">Bulboso</option>
+                            <option value="radicante">Radicante</option>
+                            <option value="otro">Otro (especifique)</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="tamano" class="form-label">Tamaño abierto</label>
+                        <select class="form-select" id="tamano" disabled>
+                            <option value="">Seleccione el tamaño</option>
+                            <option value="pequeno">Pequeño</option>
+                            <option value="mediano">Mediano</option>
+                            <option value="grande">Grande</option>
+                            <option value="otro">Otro (especifique en cm.)</option>
+                        </select>
+                    </div>
+                </form>
+                <ul id="speciesList" class="list-group">
+                    <!-- Listado de especies de setas -->
+                </ul>
+            </div></a></li>
+            
+          </ul>
+        
     </div>
 
     <script>
