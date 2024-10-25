@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta name="Author" content="J.L Rózpide">
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="El Dom\styles.css">
+    <title>El Mundo Micologico y su Mitologia</title> 
+    <!--construcción-Icono-Pestaña-->
+    <link  rel="icon" type="image/jpg" href="imagenes-png\spiderman.png.jpg">
+</head>
+<body>
+    
+        
+    <div class="col-12 container-fluid d-flex ">
+        <ul class="col-6 nav ">
+            <li class="nav-item">
+                <span class="badge text-bg-info"><a class="nav-link link-success" aria-current="page" href="#">Active</a></span>
+            </li>
+            <li class="nav-item">
+                <span class="badge text-bg-info"><a class="nav-link link-success" href="#">Link</a></span>
+            </li>
+            <li class="nav-item">
+                <span class="badge text-bg-info"><a class="nav-link link-success" href="#">Link</a></span>
+            </li>
+            
+        </ul>
+        <ul class="col-6 nav justify-content-end ">
+            <li class="nav-item">
+                <span class="badge text-bg-info"><a class="nav-link link-success" aria-current="page" href="#">Active</a></span>
+            </li>
+            <li class="nav-item">
+                <span class="badge text-bg-info"><a class="nav-link link-success" href="#">Link</a></span>
+            </li>
+            <li class="nav-item">
+                <span class="badge text-bg-info"><a class="nav-link link-success" href="#">Link</a></span>
+            </li>
+        
+        </ul>
+    </div>
+    <div class="flex-row container-fluid ">
+        <div class="col-12 d-flex justify-content-center">
+            
+        <h1 class="cabecera">🍄<br> El Mundo Micologico y su Mitologia</h1>
+        </div>
+    </div>
+    <div class="">
+    <div class="container">
+        <form id="filterForm">
+            <div class="mb-3">
+                <label for="color" class="form-label">Color</label>
+                <select class="form-select" id="color">
+                    <option value="">Seleccione un color</option>
+                    <option value="blanco">Blanco</option>
+                    <option value="marron">Marrón</option>
+                    <option value="rojo">Rojo</option>
+                    <option value="amarillo">Amarillo</option>
+                    <option value="otro">Otro (especifique)</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="laminas" class="form-label">Tipo de láminas</label>
+                <select class="form-select" id="laminas" disabled>
+                    <option value="">Seleccione el tipo de láminas</option>
+                    <option value="libres">Libres</option>
+                    <option value="adnatas">Adnatas</option>
+                    <option value="decurrentes">Decurrentes</option>
+                    <option value="otro">Otro (especifique)</option>
+                    
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="sombrero" class="form-label">Tipo de sombrero</label>
+                <select class="form-select" id="sombrero" disabled>
+                    <option value="">Seleccione el tipo de sombrero</option>
+                    <option value="convexo">Convexo</option>
+                    <option value="plano">Plano</option>
+                    <option value="umbonado">Umbonado</option>
+                    <option value="otro">Otro (especifique)</option>
+                    
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="anillo" class="form-label">Anillo</label>
+                <select class="form-select" id="anillo" disabled>
+                    <option value="">Seleccione el tipo de anillo</option>
+                    <option value="presente">Presente</option>
+                    <option value="ausente">Ausente</option>
+                    <option value="otro">Otro (especifique)</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="pie" class="form-label">Tipo de pie</label>
+                <select class="form-select" id="pie" disabled>
+                    <option value="">Seleccione el tipo de pie</option>
+                    <option value="cilindrico">Cilíndrico</option>
+                    <option value="bulboso">Bulboso</option>
+                    <option value="radicante">Radicante</option>
+                    <option value="otro">Otro (especifique)</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="tamano" class="form-label">Tamaño abierto</label>
+                <select class="form-select" id="tamano" disabled>
+                    <option value="">Seleccione el tamaño</option>
+                    <option value="pequeno">Pequeño</option>
+                    <option value="mediano">Mediano</option>
+                    <option value="grande">Grande</option>
+                    <option value="otro">Otro (especifique en cm.)</option>
+                </select>
+            </div>
+        </form>
+        <ul id="speciesList" class="list-group">
+            <!-- Listado de especies de setas -->
+        </ul>
+    </div>
+
+    <script>
+        const filterForm = document.getElementById('filterForm');
+        const colorSelect = document.getElementById('color');
+        const laminasSelect = document.getElementById('laminas');
+        const sombreroSelect = document.getElementById('sombrero');
+        const anilloSelect = document.getElementById('anillo');
+        const pieSelect = document.getElementById('pie');
+        const tamanoSelect = document.getElementById('tamano');
+        const speciesList = document.getElementById('speciesList');
+
+        const species = [
+            { name: 'Amanita muscaria', color: 'rojo', laminas: 'libres', sombrero: 'convexo', anillo: 'presente', pie: 'cilindrico', tamano: 'grande' },
+            { name: 'Boletus edulis', color: 'marron', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'bulboso', tamano: 'grande' },
+            { name: 'Cantharellus cibarius', color: 'amarillo', laminas: 'adnatas', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name: 'Lactarius deliciosus', color: 'rojo', laminas: 'decurrentes', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name: 'Macrolepiota procera', color: 'blanco', laminas: 'libres', sombrero: 'plano', anillo: 'presente', pie: 'cilindrico', tamano: 'grande' },
+            { name: 'Russula cyanoxantha', color: 'amarillo', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name: 'Tricholoma equestre', color: 'amarillo', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name: 'Tricholoma portentosum', color: 'blanco', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name: 'Tricholoma terreum', color: 'marron', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name: 'Xerocomus badius', color: 'marron', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name: 'Xerocomus subtomentosus', color: 'marron', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name: 'Xerocomus chrysenteron', color: 'marron', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name: 'Xerocomus rubellus', color: 'marron', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name: 'Xerocomus ferrugineus', color: 'marron', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name:'Xerocomus cisalpinus', color: 'marron', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name: 'Xerocomus porosporus', color: 'marron', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name: 'Xerocomus ripariellus', color: 'marron', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name: 'Xerocomus rubellus', color: 'marron', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name: 'Gyroporus castaneus', color: 'marron', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name: 'Gyroporus cyanescens', color: 'marron', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            {name:'Amanita caesarea', color: 'amarillo', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano'},
+            {name:'Amanita citrina', color: 'amarillo', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano'},
+            {name:'Amanita excelsa', color: 'blanco', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano'},
+            {name:'Amanita franchetii', color: 'blanco', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano'},
+            {name:'Amanita fulva', color: 'marron', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano'},
+            {name:'Amanita gemmata', color: 'amarillo', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano'},
+            {name:'Amanita muscaria', color: 'rojo', laminas: 'libres', sombrero: 'convexo', anillo: 'presente', pie: 'cilindrico', tamano: 'grande'},
+            {name:'Amanita pantherina', color: 'blanco', laminas: 'libres', sombrero: 'convexo', anillo: 'presente', pie: 'cilindrico', tamano: 'grande'},
+            {name:'Amanita phalloides', color: 'blanco', laminas: 'libres', sombrero: 'convexo', anillo: 'presente', pie: 'cilindrico', tamano: 'grande'},
+            {name:'Amanita rubescens', color: 'marron', laminas: 'libres', sombrero: 'convexo', anillo: 'presente', pie: 'cilindrico', tamano: 'grande'},
+            {name:'Amanita strobiliformis', color: 'blanco', laminas: 'libres', sombrero: 'convexo', anillo: 'presente', pie: 'cilindrico', tamano: 'grande'},
+            {name:'Amanita vaginata', color: 'blanco', laminas: 'libres', sombrero: 'convexo', anillo: 'presente', pie: 'cilindrico', tamano: 'grande'},
+            {name:'Amanita virosa', color: 'blanco', laminas: 'libres', sombrero: 'convexo', anillo: 'presente', pie: 'cilindrico', tamano: 'grande'},
+            {name:'Amanita volvata', color: 'marron', laminas: 'libres', sombrero: 'convexo', anillo: 'presente', pie: 'cilindrico', tamano: 'grande'},
+            {name:'Amanita verna', color: 'blanco', laminas: 'libres', sombrero: 'convexo', anillo: 'presente', pie: 'cilindrico', tamano: 'grande'},
+            {name:'Amanita virosa', color: 'blanco', laminas: 'libres', sombrero: 'convexo', anillo: 'presente', pie: 'cilindrico', tamano: 'grande'},
+            { name:'boletus aereus', color: 'marron', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'bulboso', tamano: 'grande' },
+            { name:'boletus aestivalis', color: 'marron', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'bulboso', tamano: 'grande' },
+            { name:'boletus appendiculatus', color: 'marron', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'bulboso', tamano: 'grande' },
+            { name:'boletus badius', color: 'marron', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'bulboso', tamano: 'grande' },
+            { name:'boletus calopus', color: 'marron', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'bulboso', tamano: 'grande' },
+            { name:'boletus edulis', color: 'marron', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'bulboso', tamano: 'grande' },
+            { name:'boletus erythropus', color: 'marron', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'bulboso', tamano: 'grande' },
+            { name:'boletus fechtneri', color: 'marron', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'bulboso', tamano: 'grande' },
+            { name:'boletus impolitus', color: 'marron', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'bulboso', tamano: 'grande' },
+            { name:'boletus luridus', color: 'marron', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'bulboso', tamano: 'grande' },
+            { name:'boletus pinophilus', color: 'marron', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'bulboso', tamano: 'grande' },
+            { name:'boletus pulverulentus', color: 'marron', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'bulboso', tamano: 'grande' },
+            { name:'boletus rhodoxanthus', color: 'marron', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'bulboso', tamano: 'grande' },
+            { name:'boletus subtomentosus', color: 'marron', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'bulboso', tamano: 'grande' },
+            { name:'boletus zelleri', color: 'marron', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'bulboso', tamano: 'grande' },
+            { name:'cantharellus cibarius', color: 'amarillo', laminas: 'adnatas', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name:'cantharellus tubaeformis', color: 'amarillo', laminas: 'adnatas', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name:'cantharellus xanthopus', color: 'amarillo', laminas: 'adnatas', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name:'clitocybe geotropa', color: 'blanco', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name:'clitocybe nebularis', color: 'blanco', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name:'clitocybe odora', color: 'blanco', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name:'clitocybe phyllophila', color: 'blanco', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name:'clitocybe rivulosa', color: 'blanco', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name:'clitocybe squamulosa', color: 'blanco', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name:'clitocybe vibecina', color: 'blanco', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name:'clitocybe dealbata', color: 'blanco', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name:'clitocybe fragrans', color: 'blanco', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name:'clitocybe gibba', color: 'blanco', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name:'clitocybe metachroa', color: 'blanco', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name:'clitocybe phaeophthalma', color: 'blanco', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name:'clitocybe phyllophila', color: 'blanco', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name:'clitocybe rivulosa', color: 'blanco', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name:'clitocybe squamulosa', color: 'blanco', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name:'clitocybe vibecina', color: 'blanco', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name:'clitocybe dealbata', color: 'blanco', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name:'clitocybe fragrans', color: 'blanco', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name:'clitocybe gibba', color: 'blanco', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name:'clitocybe metachroa', color: 'blanco', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name:'clitocybe phaeophthalma', color: 'blanco', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name:'clitocybe phyllophila', color: 'blanco', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name:'clitocybe rivulosa', color: 'blanco', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name:'clitocybe squamulosa', color: 'blanco', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name:'clitocybe vibecina', color: 'blanco', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name:'clitocybe dealbata', color: 'blanco', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name:'clitocybe fragrans', color: 'blanco', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name:'clitocybe gibba', color: 'blanco', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name:'clitocybe metachroa', color: 'blanco', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name:'clitocybe phaeophthalma', color: 'blanco', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name:'clitocybe phyllophila', color: 'blanco', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name:'clitocybe rivulosa', color: 'blanco', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name:'clitocybe squamulosa', color: 'blanco', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name:'clitocybe vibecina', color: 'blanco', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name:'clitocybe dealbata', color: 'blanco', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name:'clitocybe fragrans', color: 'blanco', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name:'clitocybe gibba', color: 'blanco', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name:'clitocybe metachroa', color: 'blanco', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name:'clitocybe phaeophthalma', color: 'blanco', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name:'daedaleopsis confragosa', color: 'blanco', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name:'daedaleopsis tricolor', color: 'blanco', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name: 'entoloma lividum', color: 'rosa', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name: 'entoloma rhodopolium', color: 'rosa', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name: 'entoloma sinuatum', color: 'rosa', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name: 'entoloma vernum', color: 'rosa', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name: 'entoloma clypeatum', color: 'rosa', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name: 'entoloma conferendum', color: 'rosa', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name: 'entoloma griseocyaneum', color: 'rosa', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano' },
+            { name:'fistulina hepatica', color: 'rojo', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano'},
+            { name:'fomes fomentarius', color: 'marron', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano'},
+            { name:'ganoderma applanatum', color: 'marron', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano'},
+            { name:'ganoderma lucidum', color: 'marron', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano'},
+            { name:'ganoderma pfeifferi', color: 'marron', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano'},
+            { name:'ganoderma resinaceum', color: 'marron', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano'},
+            { name:'ganoderma tsugae', color: 'marron', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano'},
+            { name:'ganoderma zonatum', color: 'marron', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano'},
+            { name:'ganoderma applanatum', color: 'marron', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano'},
+            { name:'hydnum repandum', color: 'blanco', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano'},
+            { name:'hydnum rufescens', color: 'blanco', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano'},
+            { name:'inonotus dryadeus', color: 'marron', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano'},
+            { name:'inonotus hispidus', color: 'marron', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano'},
+            { name:'inonotus obliquus', color: 'marron', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano'},
+            { name:'inonotus radiatus', color: 'marron', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano'},
+            { name:'inonotus rheades', color: 'marron', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano'},
+            {name:'julianus boletus', color: 'marron', laminas: 'libres', sombrero: 'convexo', anillo: 'ausente', pie: 'bulboso', tamano: 'grande'},
+            {name:'lactarius deliciosus', color: 'rojo', laminas: 'decurrentes', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano'},
+            {name:'lactarius deterrimus', color: 'rojo', laminas: 'decurrentes', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano'},
+            {name:'lactarius quietus', color: 'rojo', laminas: 'decurrentes', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano'},
+            {name:'lactarius sanguifluus', color: 'rojo', laminas: 'decurrentes', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano'},
+            {name:'lactarius semisanguifluus', color: 'rojo', laminas: 'decurrentes', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano'},
+            {name:'lactarius torminosus', color: 'rojo', laminas: 'decurrentes', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano'},
+            {name:'lactarius vellereus', color: 'rojo', laminas: 'decurrentes', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano'},
+            {name:'lactarius vietus', color: 'rojo', laminas: 'decurrentes', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano'},
+            {name:'lactarius vinosus', color: 'rojo', laminas: 'decurrentes', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano'},
+            {name:'lactarius xanthogalactus', color: 'rojo', laminas: 'decurrentes', sombrero: 'convexo', anillo: 'ausente', pie: 'radicante', tamano: 'mediano'},
+            
+
+            
+            // Agregar más especies según sea necesario
+        ];
+
+        colorSelect.addEventListener('change', () => {
+            laminasSelect.disabled = !colorSelect.value;
+            filterSpecies();
+        });
+
+        laminasSelect.addEventListener('change', () => {
+            sombreroSelect.disabled = !laminasSelect.value;
+            filterSpecies();
+        });
+
+        sombreroSelect.addEventListener('change', () => {
+            anilloSelect.disabled = !sombreroSelect.value;
+            filterSpecies();
+        });
+
+        anilloSelect.addEventListener('change', () => {
+            pieSelect.disabled = !anilloSelect.value;
+            filterSpecies();
+        });
+
+        pieSelect.addEventListener('change', () => {
+            tamanoSelect.disabled = !pieSelect.value;
+            filterSpecies();
+        });
+
+        tamanoSelect.addEventListener('change', filterSpecies);
+
+        function filterSpecies() {
+            const color = colorSelect.value;
+            const laminas = laminasSelect.value;
+            const sombrero = sombreroSelect.value;
+            const anillo = anilloSelect.value;
+            const pie = pieSelect.value;
+            const tamano = tamanoSelect.value;
+
+            const filteredSpecies = species.filter(specie => {
+                return (!color || specie.color === color) &&
+                       (!laminas || specie.laminas === laminas) &&
+                       (!sombrero || specie.sombrero === sombrero) &&
+                       (!anillo || specie.anillo === anillo) &&
+                       (!pie || specie.pie === pie) &&
+                       (!tamano || specie.tamano === tamano);
+            });
+
+            speciesList.innerHTML = '';
+            filteredSpecies.forEach(specie => {
+                const li = document.createElement('li');
+                li.className = 'list-group-item';
+                li.textContent = specie.name;
+                speciesList.appendChild(li);
+            });
+        }
+    </script>
+
+
+    </div>
+</body>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
