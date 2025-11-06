@@ -81,26 +81,4 @@ INSERT IGNORE INTO setas (nombre_cientifico, nombre_comun, color, laminas, sombr
 ('Lycoperdon perlatum', 'Bejín perlado', 'blanco', 'libres', 'redondo', 'ausente', 'radicante', 'mediano', 'no_comestible', 'Libera esporas en forma de humo. Comestible solo cuando es joven y blanco.', 'Bosques y prados', 'imagenes/setas/lycoperdon-perlatum.jpg'),
 ('Trametes versicolor', 'Cola de pavo', 'marron', 'libres', 'plano', 'ausente', 'ausente', 'pequeno', 'no_comestible', 'Hongo en forma de abanico con bandas de colores. Propiedades medicinales.', 'Troncos muertos', 'imagenes/setas/trametes-versicolor.jpg'),
 ('Ganoderma lucidum', 'Reishi', 'rojo', 'libres', 'plano', 'ausente', 'radicante', 'grande', 'no_comestible', 'Hongo medicinal usado en medicina tradicional china. No comestible por duro.', 'Base de árboles', 'imagenes/setas/ganoderma-lucidum.jpg'),
-('Fomes fomentarius', 'Yesca', 'marron', 'libres', 'plano', 'ausente', 'ausente', 'grande', 'no_comestible', 'Hongo leñoso usado históricamente para hacer fuego. No comestible.', 'Hayas y abedules', 'imagenes/setas/fomes-fomentarius.jpg');,
-('Tricholoma portentosum', 'Capuchina', 'amarillo', 'libres', 'convexo', 'ausente', 'cilindrico', 'mediano', 'comestible', 'Seta gris verdosa muy apreciada. Buen sabor y textura.', 'Pinares'),
-('Hydnum repandum', 'Lengua de gato', 'amarillo', 'libres', 'plano', 'ausente', 'cilindrico', 'mediano', 'comestible', 'Seta con aguijones en lugar de láminas. Sabor ligeramente picante.', 'Bosques mixtos'),
-
--- Especies tóxicas importantes
-('Amanita pantherina', 'Amanita pantera', 'marron', 'libres', 'convexo', 'presente', 'bulboso', 'grande', 'toxica', 'Muy tóxica, similar a A. muscaria pero más peligrosa. Causa síndrome neurológico.', 'Bosques de coníferas'),
-('Amanita verna', 'Oronja blanca', 'blanco', 'libres', 'convexo', 'presente', 'bulboso', 'grande', 'toxica', 'Mortal, contiene amatoxinas. Similar a A. phalloides pero totalmente blanca.', 'Bosques de caducifolios'),
-('Cortinarius orellanus', 'Cortinario de montaña', 'rojo', 'adnatas', 'convexo', 'ausente', 'cilindrico', 'pequeno', 'toxica', 'Extremadamente tóxica. Causa insuficiencia renal irreversible tras varios días.', 'Robledales y castañares'),
-('Lepiota brunneoincarnata', 'Lepiota mortal', 'blanco', 'libres', 'umbonado', 'presente', 'cilindrico', 'pequeno', 'toxica', 'Mortal, contiene amatoxinas. Pequeña seta fácil de confundir con comestibles.', 'Prados y jardines'),
-('Galerina marginata', 'Galerina mortal', 'marron', 'adnatas', 'convexo', 'presente', 'cilindrico', 'pequeno', 'toxica', 'Mortal, contiene amatoxinas. Crece en madera, puede confundirse con setas comestibles.', 'Madera en descomposición'),
-
--- Especies no comestibles pero interesantes
-('Lycoperdon perlatum', 'Bejín perlado', 'blanco', 'libres', 'convexo', 'ausente', 'bulboso', 'pequeno', 'no_comestible', 'Comestible solo cuando joven y blanco por dentro. Libera esporas al madurar.', 'Bosques y prados'),
-('Trametes versicolor', 'Cola de pavo', 'marron', 'libres', 'plano', 'ausente', 'ausente', 'pequeno', 'no_comestible', 'Hongo medicinal con propiedades inmunoestimulantes. No comestible por textura dura.', 'Madera muerta'),
-('Ganoderma lucidum', 'Reishi', 'rojo', 'libres', 'plano', 'ausente', 'cilindrico', 'mediano', 'no_comestible', 'Hongo medicinal muy valorado en Asia. Propiedades antioxidantes y antiinflamatorias.', 'Tocones de árboles'),
-('Fomes fomentarius', 'Yesca', 'marron', 'libres', 'plano', 'ausente', 'ausente', 'grande', 'no_comestible', 'Usado históricamente como yesca para fuego. Propiedades antibacterianas.', 'Hayas y abedules'),
-
--- Más especies comestibles de interés
-('Boletus aereus', 'Boleto negro', 'marron', 'libres', 'convexo', 'ausente', 'bulboso', 'grande', 'comestible', 'Excelente comestible, considerado superior al B. edulis por algunos. Color muy oscuro.', 'Encinares y alcornocales'),
-('Boletus pinophilus', 'Boleto de pino', 'marron', 'libres', 'convexo', 'ausente', 'bulboso', 'grande', 'comestible', 'Excelente comestible, sombrero rojizo característico. Crece en pinares.', 'Pinares de montaña'),
-('Agaricus campestris', 'Champiñón silvestre', 'blanco', 'libres', 'convexo', 'presente', 'cilindrico', 'mediano', 'comestible', 'El champiñón silvestre clásico. Láminas rosadas que oscurecen con la edad.', 'Prados y pastizales'),
-('Coprinus comatus', 'Barbuda', 'blanco', 'libres', 'cilindrico', 'presente', 'cilindrico', 'mediano', 'comestible', 'Comestible solo cuando joven y blanco. Se autodigiere rápidamente formando tinta.', 'Terrenos alterados y bordes de camino'),
-('Craterellus cornucopioides', 'Trompeta de los muertos', 'marron', 'libres', 'plano', 'ausente', 'cilindrico', 'pequeno', 'comestible', 'Excelente comestible a pesar del nombre. Color negro, difícil de ver entre hojarasca.', 'Bosques de caducifolios');
+('Fomes fomentarius', 'Yesca', 'marron', 'libres', 'plano', 'ausente', 'ausente', 'grande', 'no_comestible', 'Hongo leñoso usado históricamente para hacer fuego. No comestible.', 'Hayas y abedules', 'imagenes/setas/fomes-fomentarius.jpg');
